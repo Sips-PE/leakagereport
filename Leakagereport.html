@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leakage Analysis: Agent Misadvisement Impact</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom Palette & Styles -->
+    <style>
+        /* Palette: Vibrant Professional
+           Primary: #4338ca (Indigo-700)
+           Secondary: #06b6d4 (Cyan-500)
+           Alert: #ef4444 (Red-500)
+           Highlight: #f59e0b (Amber-500)
+        */
+        
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f3f4f6; /* Gray-100 */
+        }
+
+        /* Chart Container Styling - Critical for Responsiveness */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px; /* Max width to prevent stretching */
+            height: 350px;    /* Base height */
+            max-height: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Typography & Utility Overrides */
+        h1, h2, h3 {
+            color: #1e1b4b; /* Indigo-950 */
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-2px);
+            transition: transform 0.2s ease-in-out;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="text-gray-700 antialiased">
+
+    <!-- Navigation / Header -->
+    <nav class="bg-indigo-700 shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-white text-xl font-bold tracking-wider">LEAKAGE<span class="text-cyan-400">INSIGHTS</span></span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#financial-impact" class="text-indigo-100 hover:bg-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Financial Impact</a>
+                        <a href="#root-cause" class="text-indigo-100 hover:bg-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Root Cause</a>
+                        <a href="#recommendations" class="text-indigo-100 hover:bg-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Action Plan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Wrapper -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
+
+        <!-- Header Section -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-indigo-900 mb-4">Agent Misadvisement Leakage</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                An analysis of Month-To-Date (MTD) cancellations caused by internal booking errors. Identifying the financial cost and the specific "learning moments" required to stop the loss.
+            </p>
+        </header>
+
+        <!-- SECTION 1: FINANCIAL IMPACT -->
+        <section id="financial-impact" class="scroll-mt-20">
+            <div class="border-l-4 border-indigo-600 pl-4 mb-6">
+                <h2 class="text-3xl font-bold text-gray-800">The Financial Cost of Error</h2>
+                <p class="text-lg text-gray-600 mt-2">
+                    Agent misadvisement is not just an operational annoyance; it has a direct impact on the P&L. Below is the snapshot of the current period's leakage attributed directly to AnyVan administrative faults.
+                </p>
+            </div>
+
+            <!-- KPI Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <!-- KPI 1 -->
+                <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-red-500 text-center card-hover">
+                    <div class="text-gray-500 font-semibold uppercase tracking-wide text-sm">Total Refund Leakage</div>
+                    <div class="text-4xl font-extrabold text-gray-900 mt-2">£4,481</div>
+                    <div class="text-red-500 text-sm mt-1 font-medium">Direct cost of misadvisement</div>
+                </div>
+                <!-- KPI 2 -->
+                <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-indigo-500 text-center card-hover">
+                    <div class="text-gray-500 font-semibold uppercase tracking-wide text-sm">Fault Cases</div>
+                    <div class="text-4xl font-extrabold text-gray-900 mt-2">18</div>
+                    <div class="text-indigo-500 text-sm mt-1 font-medium">Bookings cancelled MTD</div>
+                </div>
+                <!-- KPI 3 -->
+                <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-cyan-500 text-center card-hover">
+                    <div class="text-gray-500 font-semibold uppercase tracking-wide text-sm">Avg. Cost Per Error</div>
+                    <div class="text-4xl font-extrabold text-gray-900 mt-2">£249</div>
+                    <div class="text-cyan-600 text-sm mt-1 font-medium">High value per incident</div>
+                </div>
+            </div>
+
+            <!-- Comparison Chart Section -->
+            <div class="bg-white rounded-xl shadow-md p-8">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                    <div class="lg:col-span-1">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Contextualizing the Loss</h3>
+                        <p class="text-gray-600 mb-4">
+                            While the total leakage for "Mis-Sold by Sales" stands at over £18k for the month, the specific "Misadvised by Booking Agent" code accounts for nearly <strong>25%</strong> of this total.
+                        </p>
+                        <p class="text-gray-600">
+                            This chart compares the specific agent misadvisement leakage against the broader category, highlighting that individual agent input quality is a massive lever for cost reduction.
+                        </p>
+                    </div>
+                    <div class="lg:col-span-2 flex justify-center bg-gray-50 rounded-lg p-4">
+                        <div class="chart-container">
+                            <canvas id="financialContextChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: ROOT CAUSE ANALYSIS -->
+        <section id="root-cause" class="scroll-mt-20">
+            <div class="border-l-4 border-cyan-500 pl-4 mb-6">
+                <h2 class="text-3xl font-bold text-gray-800">Root Cause Analysis</h2>
+                <p class="text-lg text-gray-600 mt-2">
+                    To stop the leakage, we must understand <em>why</em> these bookings failed. Our analysis of the 18 cases reveals four distinct patterns of error where agent confidence substituted for data accuracy.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Chart: Error Distribution -->
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2 border-b pb-2">Distribution of Error Types</h3>
+                    <p class="text-sm text-gray-500 mb-6">Breakdown of the 18 specific fault cases by their primary reason code.</p>
+                    <div class="chart-container">
+                        <canvas id="rootCauseChart"></canvas>
+                    </div>
+                    <div class="mt-4 text-sm text-center text-gray-500 bg-gray-50 p-2 rounded">
+                        *Hover over segments to see detailed counts.
+                    </div>
+                </div>
+
+                <!-- Detailed Cards -->
+                <div class="space-y-4">
+                    <!-- Error 1 -->
+                    <div class="bg-white rounded-lg shadow-sm p-5 border-l-8 border-indigo-600 hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-lg font-bold text-gray-900">1. Dimensions Not Added</h4>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2.5 py-0.5 rounded">Critical (7 Cases)</span>
+                        </div>
+                        <p class="text-gray-600 mt-2 text-sm">
+                            Agents failed to capture critical physical details. Examples include missing vehicle kerb weights or not listing dimensions for large furniture panels (e.g., 14ft panels), rendering the allocated van useless.
+                        </p>
+                    </div>
+
+                    <!-- Error 2 -->
+                    <div class="bg-white rounded-lg shadow-sm p-5 border-l-8 border-cyan-500 hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-lg font-bold text-gray-900">2. Service Not Offered (H&S)</h4>
+                            <span class="bg-cyan-100 text-cyan-800 text-xs font-semibold px-2.5 py-0.5 rounded">Policy (5 Cases)</span>
+                        </div>
+                        <p class="text-gray-600 mt-2 text-sm">
+                            Agents sold services that violate Health & Safety or company policy. This includes agreeing to loft collections, dismantling complex gym equipment, or promising 7.5-ton Luton vehicles.
+                        </p>
+                    </div>
+
+                    <!-- Error 3 -->
+                    <div class="bg-white rounded-lg shadow-sm p-5 border-l-8 border-amber-500 hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-lg font-bold text-gray-900">3. Operational Status Errors</h4>
+                            <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-0.5 rounded">Process (3 Cases)</span>
+                        </div>
+                        <p class="text-gray-600 mt-2 text-sm">
+                            Booking non-operational items without the necessary recovery equipment. E.g., Vehicles with flat tyres or no keys, or multi-stop routes that are logistically impossible.
+                        </p>
+                    </div>
+                     <!-- Error 4 -->
+                     <div class="bg-white rounded-lg shadow-sm p-5 border-l-8 border-gray-400 hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-lg font-bold text-gray-900">4. Incorrect Timeslots</h4>
+                            <span class="bg-gray-100 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded">Admin (3 Cases)</span>
+                        </div>
+                        <p class="text-gray-600 mt-2 text-sm">
+                            Manual entry errors where the agent booked slots conflicting with customer requirements (e.g., booking 10-12 pickup when the shop opens at 12).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: RECOMMENDATIONS -->
+        <section id="recommendations" class="scroll-mt-20 mb-20">
+             <div class="border-l-4 border-amber-500 pl-4 mb-6">
+                <h2 class="text-3xl font-bold text-gray-800">Strategic Recommendations</h2>
+                <p class="text-lg text-gray-600 mt-2">
+                    A three-pillar approach to eliminate the £4,500 monthly leakage: Training, Process, and Accountability.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-200">
+                    
+                    <!-- Pillar 1 -->
+                    <div class="p-8 text-center hover:bg-indigo-50 transition-colors">
+                        <div class="w-16 h-16 mx-auto bg-indigo-100 rounded-full flex items-center justify-center mb-4 text-3xl">
+                            🎓
+                        </div>
+                        <h3 class="text-xl font-bold text-indigo-900 mb-2">Targeted Training</h3>
+                        <h4 class="text-sm font-semibold text-indigo-600 uppercase mb-4">"Capture the Unmovable"</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Launch a mandatory module focusing on H&S exclusions (Lofts, Weight Limits). Script specific probe questions for high-risk categories like 'Car & Vehicle'.
+                        </p>
+                    </div>
+
+                    <!-- Pillar 2 -->
+                    <div class="p-8 text-center hover:bg-cyan-50 transition-colors">
+                        <div class="w-16 h-16 mx-auto bg-cyan-100 rounded-full flex items-center justify-center mb-4 text-3xl">
+                            🛡️
+                        </div>
+                        <h3 class="text-xl font-bold text-cyan-900 mb-2">Process Enforcement</h3>
+                        <h4 class="text-sm font-semibold text-cyan-600 uppercase mb-4">Mandatory Validation</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Implement tech blockers requiring agents to input Dimensions and Weight before a booking can be confirmed. Restrict manual overrides on timeslots.
+                        </p>
+                    </div>
+
+                    <!-- Pillar 3 -->
+                    <div class="p-8 text-center hover:bg-amber-50 transition-colors">
+                        <div class="w-16 h-16 mx-auto bg-amber-100 rounded-full flex items-center justify-center mb-4 text-3xl">
+                            📊
+                        </div>
+                        <h3 class="text-xl font-bold text-amber-900 mb-2">Accountability</h3>
+                        <h4 class="text-sm font-semibold text-amber-700 uppercase mb-4">Weekly Audits</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Present the £4,481 leakage to Sales Leadership. Mandate line managers to audit 3-5 bookings weekly for agents with high error rates.
+                        </p>
+                    </div>
+
+                </div>
+                <div class="bg-gray-50 px-8 py-4 border-t border-gray-200 flex justify-between items-center">
+                    <span class="text-sm font-medium text-gray-500">Proposed Implementation Timeline: Immediate</span>
+                    <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-full text-sm shadow transition-transform transform hover:scale-105">
+                        Download Detailed Report
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="mb-2">Confidential - Internal Use Only</p>
+            <p class="text-sm text-gray-500">&copy; 2025 AnyVan Performance Analysis</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Charts -->
+    <script>
+        // --- UTILITY: Label Wrapping Logic ---
+        function wrapLabel(label, maxChar = 16) {
+            if (label.length <= maxChar) return label;
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                if (currentLine.length + 1 + words[i].length <= maxChar) {
+                    currentLine += ' ' + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        // --- UTILITY: Tooltip Config ---
+        const commonTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        // --- CHART 1: Financial Context (Bar) ---
+        const ctxFinancial = document.getElementById('financialContextChart').getContext('2d');
+        const labelsFinancial = ["Total 'Mis-Sold' Leakage", "Agent Misadvised (Subset)"];
+        const wrappedLabelsFinancial = labelsFinancial.map(l => wrapLabel(l, 20));
+
+        new Chart(ctxFinancial, {
+            type: 'bar',
+            data: {
+                labels: wrappedLabelsFinancial,
+                datasets: [{
+                    label: 'Revenue Leakage (£)',
+                    data: [18266, 4481],
+                    backgroundColor: [
+                        '#e0e7ff', // Light Indigo (Context)
+                        '#4338ca'  // Dark Indigo (Focus)
+                    ],
+                    borderColor: [
+                        '#c7d2fe',
+                        '#312e81'
+                    ],
+                    borderWidth: 1,
+                    barPercentage: 0.6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: commonTooltipConfig,
+                    title: {
+                        display: true,
+                        text: 'MTD Revenue Leakage Comparison'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'GBP (£)' }
+                    }
+                }
+            }
+        });
+
+        // --- CHART 2: Root Cause (Doughnut) ---
+        const ctxRootCause = document.getElementById('rootCauseChart').getContext('2d');
+        // Data derived from analysis: Dimensions(7), Service(5), Op Status(3), Timeslots(3)
+        const labelsRootCause = [
+            "Dimensions / Inventory Missing", 
+            "Service Not Offered (H&S)", 
+            "Operational Status Error", 
+            "Incorrect Timeslots"
+        ];
+        const wrappedLabelsRootCause = labelsRootCause.map(l => wrapLabel(l, 18));
+
+        new Chart(ctxRootCause, {
+            type: 'doughnut',
+            data: {
+                labels: wrappedLabelsRootCause,
+                datasets: [{
+                    data: [7, 5, 3, 3],
+                    backgroundColor: [
+                        '#4338ca', // Indigo (Primary)
+                        '#06b6d4', // Cyan (Secondary)
+                        '#f59e0b', // Amber (Highlight)
+                        '#94a3b8'  // Slate (Neutral)
+                    ],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: { size: 11 },
+                            boxWidth: 12
+                        }
+                    },
+                    tooltip: commonTooltipConfig
+                }
+            }
+        });
+
+    </script>
+
+    <!--
+        Source Material Analysis:
+        - Identified "Misadvised by Booking Agent" as the key leakage point (18 cases, £4481).
+        - Used vibrant palette (Indigo/Cyan/Amber) per user instructions for "Professional & Stylish".
+        - Visualizations selected:
+            1. Bar Chart: To COMPARE the specific agent leakage vs the broader context (Goal: Compare).
+            2. Donut Chart: To ORGANIZE the breakdown of specific error types (Goal: Organize/Compare).
+        - No SVG or Mermaid used. Canvas only for charts. Tailwind for layout.
+    -->
+</body>
+</html>
