@@ -62,6 +62,7 @@
                         <a href="#financial-impact" class="text-indigo-100 hover:bg-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Financial Impact</a>
                         <a href="#root-cause" class="text-indigo-100 hover:bg-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Root Cause</a>
                         <a href="#recommendations" class="text-indigo-100 hover:bg-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Action Plan</a>
+                        <a href="agent-breakdown.html" class="text-cyan-300 hover:bg-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Agent Cohort →</a>
                     </div>
                 </div>
             </div>
@@ -251,9 +252,14 @@
                 </div>
                 <div class="bg-gray-50 px-8 py-4 border-t border-gray-200 flex justify-between items-center">
                     <span class="text-sm font-medium text-gray-500">Implementation: Immediate | Timeline: 4 weeks | ROI: 165k+ annually</span>
-                    <button onclick="downloadReport()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-full text-sm shadow transition-transform transform hover:scale-105">
-                        Download Executive Summary
-                    </button>
+                    <div class="flex gap-3">
+                        <a href="agent-breakdown.html" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-6 rounded-full text-sm shadow transition-transform transform hover:scale-105">
+                            View Agent Cohort
+                        </a>
+                        <button onclick="downloadReport()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-full text-sm shadow transition-transform transform hover:scale-105">
+                            Download Executive Summary
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -400,59 +406,49 @@
 
     <script>
         function downloadReport() {
-            const reportData = `LEAKAGE ANALYSIS REPORT - ${new Date().toLocaleDateString()}
-
-` +
-                `EXECUTIVE SUMMARY
-` +
-                `Total Refund Leakage: £17,223
-` +
-                `Total Cases: 53
-` +
-                `Average Cost Per Error: £325
-
-` +
-                `SERVICE BREAKDOWN:
-` +
-                `- Furniture: £6,778 (32 cases)
-` +
-                `- Removal: £6,794 (11 cases)
-` +
-                `- Car: £3,033 (9 cases)
-` +
-                `- Piano: £618 (1 case)
-
-` +
-                `ERROR CATEGORIES:
-` +
-                `1. Incorrect Weights/Dimensions (12 cases)
-` +
-                `2. Incorrect Dates/Timeslots (10 cases)
-` +
-                `3. Misselling Services (7 cases)
-` +
-                `4. Operational/Access Issues (8 cases)
-
-` +
-                `ACTION PLAN:
-` +
-                `Phase 1: Cohort Identification (Week 1)
-` +
-                `Phase 2: Micro Learning Sessions (Weeks 2-5)
-` +
-                `Phase 3: Performance Tracking (Week 6+)
-` +
-                `Target: 80% error reduction within 4 weeks`;
-
-            const blob = new Blob([reportData], { type: 'text/plain' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `Leakage_Analysis_Report_${new Date().toISOString().split('T')[0]}.txt`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            doc.setFontSize(20);
+            doc.text('LEAKAGE ANALYSIS EXECUTIVE SUMMARY', 20, 20);
+            doc.setFontSize(12);
+            doc.text(`Report Date: ${new Date().toLocaleDateString()}`, 20, 30);
+            
+            doc.setFontSize(14);
+            doc.text('THE ISSUE', 20, 50);
+            doc.setFontSize(10);
+            doc.text('53 booking failures MTD due to agent errors across', 20, 60);
+            doc.text('Furniture, Removal, Car, and Piano services.', 20, 68);
+            
+            doc.setFontSize(14);
+            doc.text('FINANCIAL IMPACT', 20, 85);
+            doc.setFontSize(10);
+            doc.text('Total Refund Leakage: £17,223 (monthly)', 20, 95);
+            doc.text('Annualized Potential Loss: £206,676', 20, 103);
+            doc.text('Average Cost Per Error: £325', 20, 111);
+            
+            doc.setFontSize(14);
+            doc.text('SERVICE BREAKDOWN', 20, 128);
+            doc.setFontSize(10);
+            doc.text('• Furniture: £6,778 (32 cases)', 20, 138);
+            doc.text('• Removal: £6,794 (11 cases)', 20, 146);
+            doc.text('• Car: £3,033 (9 cases)', 20, 154);
+            doc.text('• Piano: £618 (1 case)', 20, 162);
+            
+            doc.setFontSize(14);
+            doc.text('PROPOSED SOLUTION', 20, 179);
+            doc.setFontSize(10);
+            doc.text('Deploy targeted 15-minute micro learning modules', 20, 189);
+            doc.text('to identified agent cohort focusing on critical skills.', 20, 197);
+            
+            doc.setFontSize(14);
+            doc.text('EXPECTED GAINS', 20, 214);
+            doc.setFontSize(10);
+            doc.text('Target: 80% error reduction within 4 weeks', 20, 224);
+            doc.text('Monthly Savings: £13,778', 20, 232);
+            doc.text('Annual ROI: £165,341', 20, 240);
+            
+            doc.save(`Leakage_Executive_Summary_${new Date().toISOString().split('T')[0]}.pdf`);
         }
     </script>
 
