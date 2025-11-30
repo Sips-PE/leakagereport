@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Cohort Analysis - Upskilling Requirements</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f3f4f6;
+        }
+        h1, h2, h3 {
+            color: #1e1b4b;
+        }
+    </style>
+</head>
+<body class="text-gray-700 antialiased">
+
+    <nav class="bg-indigo-700 shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-white text-xl font-bold tracking-wider">AGENT<span class="text-cyan-400">COHORT</span></span>
+                </div>
+                <div class="hidden md:block">
+                    <a href="index.html" class="text-indigo-100 hover:bg-indigo-600 px-3 py-2 rounded-md text-sm font-medium">← Back to Summary</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-extrabold text-indigo-900 mb-4">Agent Cohort Requiring Upskilling</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Detailed breakdown of agents responsible for the £17,223 leakage - prioritized by error frequency and financial impact.
+            </p>
+        </header>
+
+        <!-- Summary Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow p-6 text-center">
+                <div class="text-2xl font-bold text-indigo-600">32</div>
+                <div class="text-sm text-gray-500">Unique Agents</div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6 text-center">
+                <div class="text-2xl font-bold text-red-600">53</div>
+                <div class="text-sm text-gray-500">Total Errors</div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6 text-center">
+                <div class="text-2xl font-bold text-amber-600">1.66</div>
+                <div class="text-sm text-gray-500">Avg Errors/Agent</div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6 text-center">
+                <div class="text-2xl font-bold text-green-600">£538</div>
+                <div class="text-sm text-gray-500">Avg Cost/Agent</div>
+            </div>
+        </div>
+
+        <!-- High Priority Agents -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-red-500 pl-4">High Priority (3+ Errors)</h2>
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <table class="min-w-full">
+                    <thead class="bg-red-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-red-900 uppercase">Agent</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-red-900 uppercase">Errors</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-red-900 uppercase">Cost Impact</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-red-900 uppercase">Primary Issues</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4 font-medium text-gray-900">Kevin M</td>
+                            <td class="px-6 py-4"><span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">4</span></td>
+                            <td class="px-6 py-4 font-semibold text-red-600">£488</td>
+                            <td class="px-6 py-4 text-sm text-gray-600">Weights/Dimensions (3), Misselling (1)</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium text-gray-900">Brent C</td>
+                            <td class="px-6 py-4"><span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">3</span></td>
+                            <td class="px-6 py-4 font-semibold text-red-600">£791</td>
+                            <td class="px-6 py-4 text-sm text-gray-600">Dates/Timeslots (2), Dismantling (1)</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium text-gray-900">Matthew Kershaw</td>
+                            <td class="px-6 py-4"><span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">3</span></td>
+                            <td class="px-6 py-4 font-semibold text-red-600">£595</td>
+                            <td class="px-6 py-4 text-sm text-gray-600">Weights/Dimensions (1), People Count (1), Access (1)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Medium Priority Agents -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-amber-500 pl-4">Medium Priority (2 Errors)</h2>
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <table class="min-w-full">
+                    <thead class="bg-amber-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-amber-900 uppercase">Agent</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-amber-900 uppercase">Errors</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-amber-900 uppercase">Cost Impact</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-amber-900 uppercase">Primary Issues</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4 font-medium text-gray-900">Luxshan DP</td>
+                            <td class="px-6 py-4"><span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-sm">2</span></td>
+                            <td class="px-6 py-4 font-semibold text-amber-600">£825</td>
+                            <td class="px-6 py-4 text-sm text-gray-600">Can't be Winched (2)</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium text-gray-900">Kamarl McDonald</td>
+                            <td class="px-6 py-4"><span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-sm">2</span></td>
+                            <td class="px-6 py-4 font-semibold text-amber-600">£909</td>
+                            <td class="px-6 py-4 text-sm text-gray-600">Inventory (1), Dismantling (1)</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium text-gray-900">HNodunyelwa</td>
+                            <td class="px-6 py-4"><span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-sm">2</span></td>
+                            <td class="px-6 py-4 font-semibold text-amber-600">£710</td>
+                            <td class="px-6 py-4 text-sm text-gray-600">Storage Location (1), Dates/Timeslots (1)</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium text-gray-900">Lee Topley</td>
+                            <td class="px-6 py-4"><span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-sm">2</span></td>
+                            <td class="px-6 py-4 font-semibold text-amber-600">£1532</td>
+                            <td class="px-6 py-4 text-sm text-gray-600">Not Sales (1), Misselling (1)</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium text-gray-900">Brandon Carelse</td>
+                            <td class="px-6 py-4"><span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-sm">2</span></td>
+                            <td class="px-6 py-4 font-semibold text-amber-600">£379</td>
+                            <td class="px-6 py-4 text-sm text-gray-600">Prohibited Item (1), Weights/Dimensions (1)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Single Error Agents -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-green-500 pl-4">Standard Priority (1 Error)</h2>
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <div class="font-medium text-gray-900">Chad P</div>
+                        <div class="text-sm text-gray-600">Kerb Weight - £471</div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <div class="font-medium text-gray-900">Habeeb Kamoju</div>
+                        <div class="text-sm text-gray-600">Pricing/Winching - £242</div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <div class="font-medium text-gray-900">Polly R</div>
+                        <div class="text-sm text-gray-600">Weights/Dimensions - £149</div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <div class="font-medium text-gray-900">T Hass</div>
+                        <div class="text-sm text-gray-600">Operational Status - £130</div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <div class="font-medium text-gray-900">NafisM</div>
+                        <div class="text-sm text-gray-600">Floors/Dates - £420</div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <div class="font-medium text-gray-900">Dave D</div>
+                        <div class="text-sm text-gray-600">Wheelbase/Weight - £586</div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <div class="font-medium text-gray-900">Tashlyn Hass</div>
+                        <div class="text-sm text-gray-600">Multi-Stop - £156</div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <div class="font-medium text-gray-900">Mo Y</div>
+                        <div class="text-sm text-gray-600">Weights/Access - £707</div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <div class="font-medium text-gray-900">Gabriella Khawula</div>
+                        <div class="text-sm text-gray-600">Dates/Timeslots - £66</div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <div class="font-medium text-gray-900">Levi Sables</div>
+                        <div class="text-sm text-gray-600">Dates/Timeslots - £1327</div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <div class="font-medium text-gray-900">Custis M</div>
+                        <div class="text-sm text-gray-600">Dates/Timeslots - £275</div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <div class="font-medium text-gray-900">THass</div>
+                        <div class="text-sm text-gray-600">Dismantling - £211</div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <div class="font-medium text-gray-900">Shane Cassim</div>
+                        <div class="text-sm text-gray-600">Misselling - £1023</div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <div class="font-medium text-gray-900">Daniel M</div>
+                        <div class="text-sm text-gray-600">Weights/Dimensions - £480</div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <div class="font-medium text-gray-900">Mekaylin Davids</div>
+                        <div class="text-sm text-gray-600">Wheelbase/Dates - £1696</div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <div class="font-medium text-gray-900">Jacques DuPlessis</div>
+                        <div class="text-sm text-gray-600">Dismantling - £403</div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <div class="font-medium text-gray-900">Sandra S</div>
+                        <div class="text-sm text-gray-600">Misselling - £618</div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <div class="font-medium text-gray-900">Michae Loubscher</div>
+                        <div class="text-sm text-gray-600">Weights/Dimensions - £209</div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <div class="font-medium text-gray-900">Connor N</div>
+                        <div class="text-sm text-gray-600">Misselling - £620</div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <div class="font-medium text-gray-900">MIsaacs</div>
+                        <div class="text-sm text-gray-600">Dates/Timeslots - £549</div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <div class="font-medium text-gray-900">Richard Swanepoel</div>
+                        <div class="text-sm text-gray-600">Can't be Winched - £132</div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <div class="font-medium text-gray-900">MShai</div>
+                        <div class="text-sm text-gray-600">Weights/Dimensions - £109</div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <div class="font-medium text-gray-900">Curtis M</div>
+                        <div class="text-sm text-gray-600">Prohibited Item - £601</div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <div class="font-medium text-gray-900">Shaun K</div>
+                        <div class="text-sm text-gray-600">Misselling - £223</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Action Plan -->
+        <section class="bg-indigo-50 rounded-xl p-8">
+            <h2 class="text-2xl font-bold text-indigo-900 mb-4">Recommended Training Approach</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg">
+                    <h3 class="font-bold text-red-900 mb-2">🚨 Immediate (High Priority)</h3>
+                    <p class="text-sm text-gray-600 mb-2">3 agents with 3+ errors each</p>
+                    <p class="text-sm text-gray-700">Intensive 1-on-1 coaching sessions focusing on their specific error patterns. Weekly progress reviews.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg">
+                    <h3 class="font-bold text-amber-900 mb-2">⚠️ Priority (Medium Priority)</h3>
+                    <p class="text-sm text-gray-600 mb-2">5 agents with 2 errors each</p>
+                    <p class="text-sm text-gray-700">Targeted micro-learning modules plus peer mentoring. Bi-weekly check-ins.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg">
+                    <h3 class="font-bold text-green-900 mb-2">📚 Standard (Single Errors)</h3>
+                    <p class="text-sm text-gray-600 mb-2">24 agents with 1 error each</p>
+                    <p class="text-sm text-gray-700">Group training sessions on common error types. Monthly monitoring.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
