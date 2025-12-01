@@ -144,13 +144,13 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 
                 <!-- Chart: Error Distribution -->
-                <div class="bg-white rounded-xl shadow-md p-6">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2 border-b pb-2">Distribution of Error Types</h3>
-                    <p class="text-sm text-gray-500 mb-6">Breakdown of the 53 cases by service category and primary error types.</p>
-                    <div class="chart-container">
+                <div class="bg-white rounded-xl shadow-md p-8">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b pb-3">Distribution of Error Types</h3>
+                    <p class="text-sm text-gray-500 mb-8">Breakdown of the 53 cases by service category and primary error types.</p>
+                    <div class="chart-container mb-6">
                         <canvas id="rootCauseChart"></canvas>
                     </div>
-                    <div class="mt-4 text-sm text-center text-gray-500 bg-gray-50 p-2 rounded">
+                    <div class="text-sm text-center text-gray-500 bg-gray-50 p-3 rounded">
                         *Hover over segments to see detailed counts.
                     </div>
                 </div>
@@ -234,11 +234,52 @@
 
                     <!-- Solution & Gains -->
                     <div class="space-y-6">
-                        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
-                            <h3 class="text-lg font-bold text-blue-900 mb-2">🎯 Proposed Solution</h3>
-                            <p class="text-blue-800 text-sm">
-                                Deploy targeted 15-minute micro learning modules to identified agent cohort. Focus on critical skills: dimension capture, service limitations, and booking accuracy.
-                            </p>
+                        <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded">
+                            <h3 class="text-lg font-bold text-blue-900 mb-4">🎯 Proposed Solution: Targeted Training Intervention</h3>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <h4 class="font-semibold text-blue-900 text-sm mb-1">HOW:</h4>
+                                    <p class="text-blue-800 text-xs">15-minute daily micro-learning modules delivered via LMS with interactive scenarios and immediate feedback loops.</p>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="font-semibold text-blue-900 text-sm mb-1">WHAT:</h4>
+                                    <p class="text-blue-800 text-xs">Personalized learning paths targeting each agent's specific error patterns: dimensions capture, service limitations, timeslot accuracy, and operational assessments.</p>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="font-semibold text-blue-900 text-sm mb-1">WHY:</h4>
+                                    <p class="text-blue-800 text-xs">Micro-learning increases retention by 17% and reduces training time by 50% while addressing specific skill gaps identified in the £17,223 leakage analysis.</p>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="font-semibold text-blue-900 text-sm mb-1">WHEN:</h4>
+                                    <p class="text-blue-800 text-xs">4-week intensive program starting immediately, with weekly assessments and progress tracking.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4 pt-4 border-t border-blue-200">
+                                <h4 class="font-semibold text-blue-900 text-sm mb-2">4-Week Training Schedule:</h4>
+                                <div class="grid grid-cols-2 gap-2 text-xs">
+                                    <div class="bg-white p-2 rounded">
+                                        <span class="font-medium text-blue-900">Week 1:</span>
+                                        <span class="text-blue-700">Dimensions & Weight Mastery</span>
+                                    </div>
+                                    <div class="bg-white p-2 rounded">
+                                        <span class="font-medium text-blue-900">Week 2:</span>
+                                        <span class="text-blue-700">Service Limitations & Health & Safety</span>
+                                    </div>
+                                    <div class="bg-white p-2 rounded">
+                                        <span class="font-medium text-blue-900">Week 3:</span>
+                                        <span class="text-blue-700">Timeslot & Scheduling Accuracy</span>
+                                    </div>
+                                    <div class="bg-white p-2 rounded">
+                                        <span class="font-medium text-blue-900">Week 4:</span>
+                                        <span class="text-blue-700">Operational Assessment Skills</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
                         <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded">
@@ -293,71 +334,156 @@
                 </div>
             </div>
 
-            <!-- High Priority Agents -->
+            <!-- Top 5 Agents by Impact -->
             <div class="mb-8">
-                <h3 class="text-xl font-bold text-gray-800 mb-4 border-l-4 border-red-500 pl-4">High Priority (3+ Errors)</h3>
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-gray-800 border-l-4 border-purple-500 pl-4">Top 5 Agents by Impact</h3>
+                    <button onclick="toggleAllAgents()" id="toggleBtn" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded text-sm">
+                        Show All 32 Agents
+                    </button>
+                </div>
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden">
                     <table class="min-w-full">
-                        <thead class="bg-red-50">
+                        <thead class="bg-purple-50">
                             <tr>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-red-900 uppercase">Agent</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-red-900 uppercase">Errors</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-red-900 uppercase">Cost Impact</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-red-900 uppercase">Primary Issues</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-purple-900 uppercase">Agent</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-purple-900 uppercase">Errors</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-purple-900 uppercase">Cost Impact</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-purple-900 uppercase">Primary Issues</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-gray-200">
+                        <tbody class="divide-y divide-gray-200" id="agentTableBody">
                             <tr>
-                                <td class="px-6 py-4 font-medium text-gray-900">Kevin M</td>
-                                <td class="px-6 py-4"><span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">4</span></td>
-                                <td class="px-6 py-4 font-semibold text-red-600">£488</td>
-                                <td class="px-6 py-4 text-sm text-gray-600">Weights/Dimensions (3), Misselling (1)</td>
+                                <td class="px-6 py-4 font-medium text-gray-900">Mekaylin Davids</td>
+                                <td class="px-6 py-4"><span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">2</span></td>
+                                <td class="px-6 py-4 font-semibold text-red-600">£1,696</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">Wheelbase/Weight, Dates/Timeslots</td>
                             </tr>
                             <tr>
+                                <td class="px-6 py-4 font-medium text-gray-900">Lee Topley</td>
+                                <td class="px-6 py-4"><span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-sm">2</span></td>
+                                <td class="px-6 py-4 font-semibold text-amber-600">£1,532</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">Not Sales, Misselling</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 font-medium text-gray-900">Levi Sables</td>
+                                <td class="px-6 py-4"><span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">1</span></td>
+                                <td class="px-6 py-4 font-semibold text-green-600">£1,327</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">Dates/Timeslots</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 font-medium text-gray-900">Shane Cassim</td>
+                                <td class="px-6 py-4"><span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">1</span></td>
+                                <td class="px-6 py-4 font-semibold text-green-600">£1,023</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">Misselling</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 font-medium text-gray-900">Kamarl McDonald</td>
+                                <td class="px-6 py-4"><span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-sm">2</span></td>
+                                <td class="px-6 py-4 font-semibold text-amber-600">£909</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">Inventory, Dismantling</td>
+                            </tr>
+                            <tr class="hidden" data-extra="true">
+                                <td class="px-6 py-4 font-medium text-gray-900">Luxshan DP</td>
+                                <td class="px-6 py-4"><span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-sm">2</span></td>
+                                <td class="px-6 py-4 font-semibold text-amber-600">£825</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">Can't be Winched (2)</td>
+                            </tr>
+                            <tr class="hidden" data-extra="true">
                                 <td class="px-6 py-4 font-medium text-gray-900">Brent C</td>
                                 <td class="px-6 py-4"><span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">3</span></td>
                                 <td class="px-6 py-4 font-semibold text-red-600">£791</td>
                                 <td class="px-6 py-4 text-sm text-gray-600">Dates/Timeslots (2), Dismantling (1)</td>
                             </tr>
-                            <tr>
+                            <tr class="hidden" data-extra="true">
+                                <td class="px-6 py-4 font-medium text-gray-900">HNodunyelwa</td>
+                                <td class="px-6 py-4"><span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-sm">2</span></td>
+                                <td class="px-6 py-4 font-semibold text-amber-600">£710</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">Storage Location, Dates/Timeslots</td>
+                            </tr>
+                            <tr class="hidden" data-extra="true">
+                                <td class="px-6 py-4 font-medium text-gray-900">Mo Y</td>
+                                <td class="px-6 py-4"><span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-sm">2</span></td>
+                                <td class="px-6 py-4 font-semibold text-amber-600">£707</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">Weights/Dimensions, Access</td>
+                            </tr>
+                            <tr class="hidden" data-extra="true">
+                                <td class="px-6 py-4 font-medium text-gray-900">Connor N</td>
+                                <td class="px-6 py-4"><span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">1</span></td>
+                                <td class="px-6 py-4 font-semibold text-green-600">£620</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">Misselling</td>
+                            </tr>
+                            <tr class="hidden" data-extra="true">
+                                <td class="px-6 py-4 font-medium text-gray-900">Sandra S</td>
+                                <td class="px-6 py-4"><span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">1</span></td>
+                                <td class="px-6 py-4 font-semibold text-green-600">£618</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">Misselling</td>
+                            </tr>
+                            <tr class="hidden" data-extra="true">
+                                <td class="px-6 py-4 font-medium text-gray-900">Curtis M</td>
+                                <td class="px-6 py-4"><span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">1</span></td>
+                                <td class="px-6 py-4 font-semibold text-green-600">£601</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">Prohibited Item</td>
+                            </tr>
+                            <tr class="hidden" data-extra="true">
                                 <td class="px-6 py-4 font-medium text-gray-900">Matthew Kershaw</td>
                                 <td class="px-6 py-4"><span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">3</span></td>
                                 <td class="px-6 py-4 font-semibold text-red-600">£595</td>
-                                <td class="px-6 py-4 text-sm text-gray-600">Weights/Dimensions (1), People Count (1), Access (1)</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">Weights/Dimensions, People Count, Access</td>
+                            </tr>
+                            <tr class="hidden" data-extra="true">
+                                <td class="px-6 py-4 font-medium text-gray-900">Dave D</td>
+                                <td class="px-6 py-4"><span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">1</span></td>
+                                <td class="px-6 py-4 font-semibold text-green-600">£586</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">Wheelbase/Weight</td>
+                            </tr>
+                            <tr class="hidden" data-extra="true">
+                                <td class="px-6 py-4 font-medium text-gray-900">Kamarl McDonald</td>
+                                <td class="px-6 py-4"><span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">1</span></td>
+                                <td class="px-6 py-4 font-semibold text-green-600">£565</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">Dismantling</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
 
-            <!-- Medium Priority Summary -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="bg-white rounded-xl shadow-lg p-6">
-                    <h3 class="text-lg font-bold text-amber-900 mb-4 border-l-4 border-amber-500 pl-4">Medium Priority (2 Errors)</h3>
-                    <div class="space-y-3">
-                        <div class="flex justify-between items-center p-3 bg-amber-50 rounded">
-                            <span class="font-medium">Luxshan DP</span>
-                            <span class="text-amber-700 font-semibold">£825</span>
-                        </div>
-                        <div class="flex justify-between items-center p-3 bg-amber-50 rounded">
-                            <span class="font-medium">Kamarl McDonald</span>
-                            <span class="text-amber-700 font-semibold">£909</span>
-                        </div>
-                        <div class="flex justify-between items-center p-3 bg-amber-50 rounded">
-                            <span class="font-medium">Lee Topley</span>
-                            <span class="text-amber-700 font-semibold">£1,532</span>
-                        </div>
-                        <div class="text-center text-sm text-gray-500 mt-4">+ 2 more agents</div>
-                    </div>
-                </div>
+            <script>
+                function toggleAllAgents() {
+                    const extraRows = document.querySelectorAll('[data-extra="true"]');
+                    const toggleBtn = document.getElementById('toggleBtn');
+                    const isHidden = extraRows[0].classList.contains('hidden');
+                    
+                    extraRows.forEach(row => {
+                        if (isHidden) {
+                            row.classList.remove('hidden');
+                        } else {
+                            row.classList.add('hidden');
+                        }
+                    });
+                    
+                    toggleBtn.textContent = isHidden ? 'Show Top 5 Only' : 'Show All 32 Agents';
+                }
+            </script>
 
-                <div class="bg-white rounded-xl shadow-lg p-6">
-                    <h3 class="text-lg font-bold text-green-900 mb-4 border-l-4 border-green-500 pl-4">Standard Priority (1 Error)</h3>
-                    <div class="text-center">
-                        <div class="text-3xl font-bold text-green-600 mb-2">24</div>
-                        <div class="text-sm text-gray-600 mb-4">Agents with single errors</div>
-                        <div class="text-sm text-gray-500">Range: £66 - £1,696 per agent</div>
-                        <div class="text-sm text-gray-500">Total Impact: £12,905</div>
+            <!-- Training Priority Summary -->
+            <div class="bg-indigo-50 rounded-xl p-6">
+                <h3 class="text-lg font-bold text-indigo-900 mb-4">Training Priority Breakdown</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-white p-4 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-red-600">3</div>
+                        <div class="text-sm text-gray-600">High Priority (3+ errors)</div>
+                        <div class="text-xs text-gray-500 mt-1">Immediate 1-on-1 coaching</div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-amber-600">5</div>
+                        <div class="text-sm text-gray-600">Medium Priority (2 errors)</div>
+                        <div class="text-xs text-gray-500 mt-1">Targeted micro-learning</div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-green-600">24</div>
+                        <div class="text-sm text-gray-600">Standard Priority (1 error)</div>
+                        <div class="text-xs text-gray-500 mt-1">Group training sessions</div>
                     </div>
                 </div>
             </div>
