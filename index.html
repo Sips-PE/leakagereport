@@ -76,7 +76,7 @@
         <header class="text-center mb-12">
             <h1 class="text-4xl md:text-5xl font-extrabold text-indigo-900 mb-4">Agent Misadvisement Leakage</h1>
             <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                An analysis of Month-To-Date (MTD) cancellations caused by sales errors across all service categories. Identifying the £17,223 financial impact and specific training needs to eliminate future losses.
+                An analysis of Month-To-Date (MTD) cancellations caused by sales errors across all service categories. Identifying the £18,914 financial impact and specific training needs to eliminate future losses.
             </p>
         </header>
 
@@ -94,19 +94,19 @@
                 <!-- KPI 1 -->
                 <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-red-500 text-center card-hover">
                     <div class="text-gray-500 font-semibold uppercase tracking-wide text-sm">Total Refund Leakage</div>
-                    <div class="text-4xl font-extrabold text-gray-900 mt-2">£17,223</div>
+                    <div class="text-4xl font-extrabold text-gray-900 mt-2">£18,914</div>
                     <div class="text-red-500 text-sm mt-1 font-medium">Direct cost of sales errors</div>
                 </div>
                 <!-- KPI 2 -->
                 <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-indigo-500 text-center card-hover">
                     <div class="text-gray-500 font-semibold uppercase tracking-wide text-sm">Total Cases</div>
-                    <div class="text-4xl font-extrabold text-gray-900 mt-2">53</div>
+                    <div class="text-4xl font-extrabold text-gray-900 mt-2">55</div>
                     <div class="text-indigo-500 text-sm mt-1 font-medium">Bookings cancelled MTD</div>
                 </div>
                 <!-- KPI 3 -->
                 <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-cyan-500 text-center card-hover">
                     <div class="text-gray-500 font-semibold uppercase tracking-wide text-sm">Avg. Cost Per Error</div>
-                    <div class="text-4xl font-extrabold text-gray-900 mt-2">£325</div>
+                    <div class="text-4xl font-extrabold text-gray-900 mt-2">£344</div>
                     <div class="text-cyan-600 text-sm mt-1 font-medium">High value per incident</div>
                 </div>
             </div>
@@ -117,7 +117,7 @@
                     <div class="lg:col-span-1">
                         <h3 class="text-2xl font-bold text-gray-800 mb-4">Contextualizing the Loss</h3>
                         <p class="text-gray-600 mb-4">
-                            The total leakage across all categories shows <strong>Furniture</strong> as the highest impact area at £6,778, followed by <strong>Removal</strong> at £6,794. Car transport accounts for £3,033 in losses.
+                            The total leakage shows <strong>Removal</strong> as the highest impact area at £8,513, followed by <strong>Furniture</strong> at £8,982. Car transport accounts for £1,419 in losses.
                         </p>
                         <p class="text-gray-600">
                             This breakdown reveals where training and process improvements will have the greatest financial impact on reducing customer refunds.
@@ -137,7 +137,7 @@
             <div class="border-l-4 border-cyan-500 pl-4 mb-6">
                 <h2 class="text-3xl font-bold text-gray-800">Root Cause Analysis</h2>
                 <p class="text-lg text-gray-600 mt-2">
-                    To stop the leakage, we must understand <em>why</em> these bookings failed. Our analysis of the 53 cases reveals distinct patterns across service categories where incorrect information led to booking failures.
+                    To stop the leakage, we must understand <em>why</em> these bookings failed. Our analysis of the 55 cases reveals distinct patterns across service categories where incorrect information led to booking failures.
                 </p>
             </div>
 
@@ -146,7 +146,7 @@
                 <!-- Chart: Error Distribution -->
                 <div class="bg-white rounded-xl shadow-md p-8">
                     <h3 class="text-xl font-bold text-gray-800 mb-3 border-b pb-3">Distribution of Error Types</h3>
-                    <p class="text-sm text-gray-500 mb-8">Breakdown of the 53 cases by service category and primary error types.</p>
+                    <p class="text-sm text-gray-500 mb-8">Breakdown of the 55 cases by service category and primary error types.</p>
                     <div class="chart-container mb-6">
                         <canvas id="rootCauseChart"></canvas>
                     </div>
@@ -160,43 +160,43 @@
                     <!-- Error 1 -->
                     <div class="bg-white rounded-lg shadow-sm p-5 border-l-8 border-indigo-600 hover:shadow-md transition-shadow">
                         <div class="flex justify-between items-start">
-                            <h4 class="text-lg font-bold text-gray-900">1. Incorrect Weights/Dimensions</h4>
-                            <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2.5 py-0.5 rounded">Critical (12 Cases)</span>
+                            <h4 class="text-lg font-bold text-gray-900">1. Incorrect Dates/Timeslots</h4>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2.5 py-0.5 rounded">Critical (10 Cases)</span>
                         </div>
                         <p class="text-gray-600 mt-2 text-sm">
-                            Furniture (9 cases) and Car transport (3 cases) failures due to missing or incorrect physical specifications. Includes kerb weight errors and missing furniture dimensions.
+                            Booking conflicts and scheduling errors causing £4,622 in refunds. Primary cause of customer dissatisfaction and cancellations.
                         </p>
                     </div>
 
                     <!-- Error 2 -->
                     <div class="bg-white rounded-lg shadow-sm p-5 border-l-8 border-cyan-500 hover:shadow-md transition-shadow">
                         <div class="flex justify-between items-start">
-                            <h4 class="text-lg font-bold text-gray-900">2. Incorrect Dates/Timeslots</h4>
-                            <span class="bg-cyan-100 text-cyan-800 text-xs font-semibold px-2.5 py-0.5 rounded">Process (10 Cases)</span>
+                            <h4 class="text-lg font-bold text-gray-900">2. Incorrect Weights/Dimensions</h4>
+                            <span class="bg-cyan-100 text-cyan-800 text-xs font-semibold px-2.5 py-0.5 rounded">Assessment (9 Cases)</span>
                         </div>
                         <p class="text-gray-600 mt-2 text-sm">
-                            Booking conflicts across Furniture (7), Removal (2), and Car (1) services. Agents scheduling pickups outside customer availability windows.
+                            Weight and dimension errors causing £1,933 in refunds. Includes wheelbase/kerb weight miscalculations and incorrect measurements.
                         </p>
                     </div>
 
                     <!-- Error 3 -->
                     <div class="bg-white rounded-lg shadow-sm p-5 border-l-8 border-amber-500 hover:shadow-md transition-shadow">
                         <div class="flex justify-between items-start">
-                            <h4 class="text-lg font-bold text-gray-900">3. Misselling Services</h4>
-                            <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-0.5 rounded">Training (7 Cases)</span>
+                            <h4 class="text-lg font-bold text-gray-900">3. Operational Issues</h4>
+                            <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-0.5 rounded">Assessment (9 Cases)</span>
                         </div>
                         <p class="text-gray-600 mt-2 text-sm">
-                            Promising services not offered: Furniture (3), Removal (3), Piano (1). Includes H&S violations and service capability misunderstandings.
+                            Access restrictions, dismantling requirements, and vehicle operational status issues causing £2,713 in combined refunds.
                         </p>
                     </div>
                      <!-- Error 4 -->
                      <div class="bg-white rounded-lg shadow-sm p-5 border-l-8 border-gray-400 hover:shadow-md transition-shadow">
                         <div class="flex justify-between items-start">
-                            <h4 class="text-lg font-bold text-gray-900">4. Operational/Access Issues</h4>
-                            <span class="bg-gray-100 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded">Assessment (8 Cases)</span>
+                            <h4 class="text-lg font-bold text-gray-900">4. Misselling & Process Errors</h4>
+                            <span class="bg-gray-100 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded">Training (10 Cases)</span>
                         </div>
                         <p class="text-gray-600 mt-2 text-sm">
-                            Vehicle operational status (4), access restrictions (3), and dismantling requirements (4) not properly assessed during booking.
+                            Service misselling, inventory errors, and process violations causing £4,645 in refunds. Includes cancellation terms and van requirement errors.
                         </p>
                     </div>
                 </div>
@@ -208,7 +208,7 @@
              <div class="border-l-4 border-amber-500 pl-4 mb-6">
                 <h2 class="text-3xl font-bold text-gray-800">Executive Summary & Intervention Plan</h2>
                 <p class="text-lg text-gray-600 mt-2">
-                    Targeted micro learning intervention with identified agent cohort to eliminate £17,223 monthly leakage and achieve measurable ROI.
+                    Targeted micro learning intervention with identified agent cohort to eliminate £18,914 monthly leakage and achieve measurable ROI.
                 </p>
             </div>
 
@@ -220,14 +220,14 @@
                         <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded">
                             <h3 class="text-lg font-bold text-red-900 mb-2">🚨 The Issue</h3>
                             <p class="text-red-800 text-sm">
-                                53 booking failures MTD due to agent errors across Furniture, Removal, Car, and Piano services. Primary causes: incorrect dimensions, timeslot conflicts, and service misselling.
+                                55 booking failures MTD due to agent errors across all service categories. Primary causes: incorrect dates/timeslots (£4,622), weights/dimensions (£1,933), and operational issues.
                             </p>
                         </div>
                         
                         <div class="bg-orange-50 border-l-4 border-orange-500 p-4 rounded">
                             <h3 class="text-lg font-bold text-orange-900 mb-2">💰 Financial Impact</h3>
                             <p class="text-orange-800 text-sm">
-                                <strong>£17,223 direct refund cost</strong> this month. Annualized: £206,676 potential loss. Average £325 per error with high-value Removal services most affected.
+                                <strong>£18,914 direct refund cost</strong> this month. Annualized: £226,968 potential loss. Average £344 per error with date/timeslot issues causing highest impact.
                             </p>
                         </div>
                     </div>
@@ -245,12 +245,31 @@
                                 
                                 <div>
                                     <h4 class="font-semibold text-blue-900 text-sm mb-1">WHAT:</h4>
-                                    <p class="text-blue-800 text-xs">Personalized learning paths targeting each agent's specific error patterns: dimensions capture, service limitations, timeslot accuracy, and operational assessments.</p>
+                                    <p class="text-blue-800 text-xs">Comprehensive training covering 4 key improvement areas: Service Capabilities, Operational Requirements, Customer Management, and Process Excellence.</p>
                                 </div>
                                 
                                 <div>
-                                    <h4 class="font-semibold text-blue-900 text-sm mb-1">WHY:</h4>
-                                    <p class="text-blue-800 text-xs">Micro-learning increases retention by 17% and reduces training time by 50% while addressing specific skill gaps identified in the £17,223 leakage analysis.</p>
+                                    <h4 class="font-semibold text-blue-900 text-sm mb-2">WHY THIS IS IMPORTANT:</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                                        <div class="bg-blue-50 p-2 rounded border border-blue-200">
+                                            <h5 class="font-semibold text-blue-900 mb-1">For AnyVan:</h5>
+                                            <ul class="text-blue-800 space-y-1">
+                                                <li>• Reduces £18,914 monthly leakage</li>
+                                                <li>• Prevents customer dissatisfaction</li>
+                                                <li>• Protects brand reputation</li>
+                                                <li>• Improves operational efficiency</li>
+                                            </ul>
+                                        </div>
+                                        <div class="bg-green-50 p-2 rounded border border-green-200">
+                                            <h5 class="font-semibold text-green-900 mb-1">For Sales Agents:</h5>
+                                            <ul class="text-green-800 space-y-1">
+                                                <li>• Increases booking success rate</li>
+                                                <li>• Builds customer confidence</li>
+                                                <li>• Reduces post-sale complications</li>
+                                                <li>• Enhances professional credibility</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                                 
                                 <div>
@@ -260,23 +279,70 @@
                             </div>
                             
                             <div class="mt-4 pt-4 border-t border-blue-200">
-                                <h4 class="font-semibold text-blue-900 text-sm mb-2">4-Week Training Schedule:</h4>
-                                <div class="grid grid-cols-2 gap-2 text-xs">
-                                    <div class="bg-white p-2 rounded">
-                                        <span class="font-medium text-blue-900">Week 1:</span>
-                                        <span class="text-blue-700">Dimensions & Weight Mastery</span>
+                                <h4 class="font-semibold text-blue-900 text-sm mb-3">4 Key Improvement Areas / Training Themes:</h4>
+                                
+                                <!-- Area 1: Service Capabilities -->
+                                <div class="mb-4">
+                                    <h5 class="font-semibold text-blue-900 text-xs mb-2 bg-blue-100 p-2 rounded">1. Service Capabilities & Limitations</h5>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs pl-2">
+                                        <div>
+                                            <p class="font-medium text-blue-800 mb-1">What AnyVan Can & Can't Do</p>
+                                            <p class="font-medium text-blue-800 mb-1">Prohibited Items</p>
+                                            <p class="font-medium text-blue-800 mb-1">AnyVan Fleet (Vehicles We Have Access to)</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium text-blue-800 mb-1">Vehicles that Can't Roll</p>
+                                            <p class="font-medium text-blue-800 mb-1">Vehicle Move Limitations</p>
+                                            <p class="font-medium text-blue-800 mb-1">Van Types</p>
+                                        </div>
                                     </div>
-                                    <div class="bg-white p-2 rounded">
-                                        <span class="font-medium text-blue-900">Week 2:</span>
-                                        <span class="text-blue-700">Service Limitations & Health & Safety</span>
+                                </div>
+                                
+                                <!-- Area 2: Operational Requirements -->
+                                <div class="mb-4">
+                                    <h5 class="font-semibold text-blue-900 text-xs mb-2 bg-cyan-100 p-2 rounded">2. Operational Requirements & Assessment</h5>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs pl-2">
+                                        <div>
+                                            <p class="font-medium text-cyan-800 mb-1">Dismantling & Assembly</p>
+                                            <p class="font-medium text-cyan-800 mb-1">What Items Can't we offer this on</p>
+                                            <p class="font-medium text-cyan-800 mb-1">Weight & Dimensions</p>
+                                            <p class="font-medium text-cyan-800 mb-1">Operational Status</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium text-cyan-800 mb-1">Floors (And Do Items Fit in Lifts)</p>
+                                            <p class="font-medium text-cyan-800 mb-1">Any Access Restrictions</p>
+                                            <p class="font-medium text-cyan-800 mb-1">Parking & Height & Proximity to Addresses</p>
+                                        </div>
                                     </div>
-                                    <div class="bg-white p-2 rounded">
-                                        <span class="font-medium text-blue-900">Week 3:</span>
-                                        <span class="text-blue-700">Timeslot & Scheduling Accuracy</span>
+                                </div>
+                                
+                                <!-- Area 3: Customer Management -->
+                                <div class="mb-4">
+                                    <h5 class="font-semibold text-blue-900 text-xs mb-2 bg-amber-100 p-2 rounded">3. Customer Management & Expectations</h5>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs pl-2">
+                                        <div>
+                                            <p class="font-medium text-amber-800 mb-1">Key Questions & Information Required</p>
+                                            <p class="font-medium text-amber-800 mb-1">Under Promise Over Deliver</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium text-amber-800 mb-1">No Provisional Bookings</p>
+                                            <p class="font-medium text-amber-800 mb-1">Additional Items</p>
+                                        </div>
                                     </div>
-                                    <div class="bg-white p-2 rounded">
-                                        <span class="font-medium text-blue-900">Week 4:</span>
-                                        <span class="text-blue-700">Operational Assessment Skills</span>
+                                </div>
+                                
+                                <!-- Area 4: Process Excellence -->
+                                <div class="mb-2">
+                                    <h5 class="font-semibold text-blue-900 text-xs mb-2 bg-green-100 p-2 rounded">4. Process Excellence & Accuracy</h5>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs pl-2">
+                                        <div>
+                                            <p class="font-medium text-green-800 mb-1">Accuracy in All Information Capture</p>
+                                            <p class="font-medium text-green-800 mb-1">Inventory-Based System & Pricing</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium text-green-800 mb-1">Cancellation Terms</p>
+                                            <p class="font-medium text-green-800 mb-1">Complete Information Verification</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -285,14 +351,14 @@
                         <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded">
                             <h3 class="text-lg font-bold text-green-900 mb-2">📈 Expected Gains</h3>
                             <p class="text-green-800 text-sm">
-                                <strong>80% error reduction target</strong> within 4 weeks. Potential monthly savings: <strong>£13,778</strong>. Annual ROI: £165,341 with minimal training investment.
+                                <strong>80% error reduction target</strong> within 4 weeks. Potential monthly savings: <strong>£15,131</strong>. Annual ROI: £181,574 with minimal training investment.
                             </p>
                         </div>
                     </div>
 
                 </div>
                 <div class="bg-gray-50 px-8 py-4 border-t border-gray-200 flex justify-between items-center">
-                    <span class="text-sm font-medium text-gray-500">Implementation: Immediate | Timeline: 4 weeks | ROI: 165k+ annually</span>
+                    <span class="text-sm font-medium text-gray-500">Implementation: Immediate | Timeline: 4 weeks | ROI: 182k+ annually</span>
                     <div class="flex gap-3">
                         <a href="agent-breakdown.html" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-6 rounded-full text-sm shadow transition-transform transform hover:scale-105">
                             View Agent Cohort
@@ -310,14 +376,14 @@
             <div class="border-l-4 border-purple-500 pl-4 mb-6">
                 <h2 class="text-3xl font-bold text-gray-800">Agent Cohort Requiring Upskilling</h2>
                 <p class="text-lg text-gray-600 mt-2">
-                    32 agents identified for targeted training - prioritized by error frequency and financial impact.
+                    35 agents identified for targeted training - prioritized by error frequency and financial impact.
                 </p>
             </div>
 
             <!-- Summary Stats -->
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
                 <div class="bg-white rounded-lg shadow p-6 text-center">
-                    <div class="text-2xl font-bold text-indigo-600">32</div>
+                    <div class="text-2xl font-bold text-indigo-600">35</div>
                     <div class="text-sm text-gray-500">Unique Agents</div>
                 </div>
                 <div class="bg-white rounded-lg shadow p-6 text-center">
@@ -325,11 +391,11 @@
                     <div class="text-sm text-gray-500">Total Errors</div>
                 </div>
                 <div class="bg-white rounded-lg shadow p-6 text-center">
-                    <div class="text-2xl font-bold text-amber-600">1.66</div>
+                    <div class="text-2xl font-bold text-amber-600">1.57</div>
                     <div class="text-sm text-gray-500">Avg Errors/Agent</div>
                 </div>
                 <div class="bg-white rounded-lg shadow p-6 text-center">
-                    <div class="text-2xl font-bold text-green-600">£538</div>
+                    <div class="text-2xl font-bold text-green-600">£540</div>
                     <div class="text-sm text-gray-500">Avg Cost/Agent</div>
                 </div>
             </div>
@@ -339,7 +405,7 @@
                 <div class="flex justify-between items-center mb-4">
                     <h3 class="text-xl font-bold text-gray-800 border-l-4 border-purple-500 pl-4">Top 5 Agents by Impact</h3>
                     <button onclick="toggleAllAgents()" id="toggleBtn" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded text-sm">
-                        Show All 32 Agents
+                        Show All 35 Agents
                     </button>
                 </div>
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden">
@@ -354,9 +420,15 @@
                         </thead>
                         <tbody class="divide-y divide-gray-200" id="agentTableBody">
                             <tr>
+                                <td class="px-6 py-4 font-medium text-gray-900">Kamarl McDonald</td>
+                                <td class="px-6 py-4"><span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">4</span></td>
+                                <td class="px-6 py-4 font-semibold text-red-600">£2,665</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">Inventory, Dismantling, Dates/Timeslots</td>
+                            </tr>
+                            <tr>
                                 <td class="px-6 py-4 font-medium text-gray-900">Mekaylin Davids</td>
-                                <td class="px-6 py-4"><span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">2</span></td>
-                                <td class="px-6 py-4 font-semibold text-red-600">£1,696</td>
+                                <td class="px-6 py-4"><span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-sm">2</span></td>
+                                <td class="px-6 py-4 font-semibold text-amber-600">£2,010</td>
                                 <td class="px-6 py-4 text-sm text-gray-600">Wheelbase/Weight, Dates/Timeslots</td>
                             </tr>
                             <tr>
@@ -375,13 +447,7 @@
                                 <td class="px-6 py-4 font-medium text-gray-900">Shane Cassim</td>
                                 <td class="px-6 py-4"><span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">1</span></td>
                                 <td class="px-6 py-4 font-semibold text-green-600">£1,023</td>
-                                <td class="px-6 py-4 text-sm text-gray-600">Misselling</td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-4 font-medium text-gray-900">Kamarl McDonald</td>
-                                <td class="px-6 py-4"><span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-sm">2</span></td>
-                                <td class="px-6 py-4 font-semibold text-amber-600">£909</td>
-                                <td class="px-6 py-4 text-sm text-gray-600">Inventory, Dismantling</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">Misselling - Pressured Into Booking</td>
                             </tr>
                             <tr class="hidden" data-extra="true">
                                 <td class="px-6 py-4 font-medium text-gray-900">Luxshan DP</td>
@@ -462,7 +528,7 @@
                         }
                     });
                     
-                    toggleBtn.textContent = isHidden ? 'Show Top 5 Only' : 'Show All 32 Agents';
+                    toggleBtn.textContent = isHidden ? 'Show Top 5 Only' : 'Show All 35 Agents';
                 }
             </script>
 
@@ -471,17 +537,17 @@
                 <h3 class="text-lg font-bold text-indigo-900 mb-4">Training Priority Breakdown</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div class="bg-white p-4 rounded-lg text-center">
-                        <div class="text-2xl font-bold text-red-600">3</div>
+                        <div class="text-2xl font-bold text-red-600">4</div>
                         <div class="text-sm text-gray-600">High Priority (3+ errors)</div>
                         <div class="text-xs text-gray-500 mt-1">Immediate 1-on-1 coaching</div>
                     </div>
                     <div class="bg-white p-4 rounded-lg text-center">
-                        <div class="text-2xl font-bold text-amber-600">5</div>
+                        <div class="text-2xl font-bold text-amber-600">6</div>
                         <div class="text-sm text-gray-600">Medium Priority (2 errors)</div>
                         <div class="text-xs text-gray-500 mt-1">Targeted micro-learning</div>
                     </div>
                     <div class="bg-white p-4 rounded-lg text-center">
-                        <div class="text-2xl font-bold text-green-600">24</div>
+                        <div class="text-2xl font-bold text-green-600">25</div>
                         <div class="text-sm text-gray-600">Standard Priority (1 error)</div>
                         <div class="text-xs text-gray-500 mt-1">Group training sessions</div>
                     </div>
@@ -546,7 +612,7 @@
                 labels: wrappedLabelsFinancial,
                 datasets: [{
                     label: 'Revenue Leakage (£)',
-                    data: [6778, 6794, 3033, 618],
+                    data: [8982, 8513, 1419, 0],
                     backgroundColor: [
                         '#4338ca', // Indigo
                         '#06b6d4', // Cyan
@@ -585,12 +651,12 @@
 
         // --- CHART 2: Root Cause (Doughnut) ---
         const ctxRootCause = document.getElementById('rootCauseChart').getContext('2d');
-        // Data derived from new analysis: Weights/Dimensions(12), Dates/Timeslots(10), Misselling(7), Operational/Access(8), Other(16)
+        // Data derived from updated analysis: Dates/Timeslots(10), Weights/Dimensions(9), Operational(9), Misselling/Process(10), Other(17)
         const labelsRootCause = [
-            "Incorrect Weights/Dimensions", 
             "Incorrect Dates/Timeslots", 
-            "Misselling Services", 
-            "Operational/Access Issues",
+            "Incorrect Weights/Dimensions", 
+            "Operational Issues", 
+            "Misselling & Process Errors",
             "Other Errors"
         ];
         const wrappedLabelsRootCause = labelsRootCause.map(l => wrapLabel(l, 18));
@@ -600,7 +666,7 @@
             data: {
                 labels: wrappedLabelsRootCause,
                 datasets: [{
-                    data: [12, 10, 7, 8, 16],
+                    data: [10, 9, 9, 10, 17],
                     backgroundColor: [
                         '#4338ca', // Indigo (Primary)
                         '#06b6d4', // Cyan (Secondary)
@@ -642,15 +708,15 @@
             doc.setFontSize(14);
             doc.text('THE ISSUE', 20, 50);
             doc.setFontSize(10);
-            doc.text('53 booking failures MTD due to agent errors across', 20, 60);
-            doc.text('Furniture, Removal, Car, and Piano services.', 20, 68);
+            doc.text('55 booking failures MTD due to agent errors across', 20, 60);
+            doc.text('all service categories.', 20, 68);
             
             doc.setFontSize(14);
             doc.text('FINANCIAL IMPACT', 20, 85);
             doc.setFontSize(10);
-            doc.text('Total Refund Leakage: £17,223 (monthly)', 20, 95);
-            doc.text('Annualized Potential Loss: £206,676', 20, 103);
-            doc.text('Average Cost Per Error: £325', 20, 111);
+            doc.text('Total Refund Leakage: £18,914 (monthly)', 20, 95);
+            doc.text('Annualized Potential Loss: £226,968', 20, 103);
+            doc.text('Average Cost Per Error: £344', 20, 111);
             
             doc.setFontSize(14);
             doc.text('SERVICE BREAKDOWN', 20, 128);
@@ -670,8 +736,8 @@
             doc.text('EXPECTED GAINS', 20, 214);
             doc.setFontSize(10);
             doc.text('Target: 80% error reduction within 4 weeks', 20, 224);
-            doc.text('Monthly Savings: £13,778', 20, 232);
-            doc.text('Annual ROI: £165,341', 20, 240);
+            doc.text('Monthly Savings: £15,131', 20, 232);
+            doc.text('Annual ROI: £181,574', 20, 240);
             
             doc.save(`Leakage_Executive_Summary_${new Date().toISOString().split('T')[0]}.pdf`);
         }
