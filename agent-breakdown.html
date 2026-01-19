@@ -3,288 +3,343 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agent Cohort Analysis - Upskilling Requirements</title>
+    <title>Sophie AI Agent - Executive Performance Review</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f3f4f6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1e293b;
+            min-height: 100vh;
         }
-        h1, h2, h3 {
-            color: #1e1b4b;
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
+        .metric-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        .metric-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .status-good { background: #10b981; }
+        .status-warning { background: #f59e0b; }
+        .status-risk { background: #ef4444; }
+        .chart-container { position: relative; height: 300px; }
     </style>
 </head>
-<body class="text-gray-700 antialiased">
-
-    <nav class="bg-indigo-700 shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center">
-                    <span class="text-white text-xl font-bold tracking-wider">AGENT<span class="text-cyan-400">COHORT</span></span>
+<body class="text-white">
+    <!-- Header -->
+    <header class="glass-card shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-2xl font-bold text-white">Sophie AI Agent</h1>
+                    <p class="text-blue-100 text-sm">Executive Performance Review • Jan 5-19, 2026</p>
                 </div>
-                <div class="hidden md:block">
-                    <a href="index.html" class="text-indigo-100 hover:bg-indigo-600 px-3 py-2 rounded-md text-sm font-medium">← Back to Summary</a>
+                <div class="flex space-x-3">
+                    <span class="px-3 py-1 bg-green-500 bg-opacity-20 text-green-100 rounded-full text-xs font-medium">Live Operations</span>
+                    <span class="px-3 py-1 bg-blue-500 bg-opacity-20 text-blue-100 rounded-full text-xs font-medium">Voice & Chat</span>
                 </div>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        
-        <header class="text-center mb-12">
-            <h1 class="text-4xl font-extrabold text-indigo-900 mb-4">Agent Cohort Requiring Upskilling</h1>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                Detailed breakdown of agents responsible for the £18,914 leakage - prioritized by error frequency and financial impact.
-            </p>
-        </header>
+    <main class="max-w-7xl mx-auto px-6 py-8">
+        <!-- Executive Summary -->
+        <section class="mb-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold mb-4">Executive Summary</h2>
+                    <p class="text-lg text-blue-100 max-w-4xl mx-auto">
+                        Sophie is successfully operating as a frontline digital agent, handling real customer interactions with strong operational coverage. Focus now shifts to behavioral refinement for maximum trust and adoption.
+                    </p>
+                </div>
 
-        <!-- Summary Stats -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-            <div class="bg-white rounded-lg shadow p-6 text-center">
-                <div class="text-2xl font-bold text-indigo-600">35</div>
-                <div class="text-sm text-gray-500">Unique Agents</div>
+                <!-- Key Metrics -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="metric-card rounded-xl p-6 text-center">
+                        <div class="text-3xl font-bold text-green-400 mb-2">95%</div>
+                        <div class="text-sm text-blue-100">Policy Compliance</div>
+                    </div>
+                    <div class="metric-card rounded-xl p-6 text-center">
+                        <div class="text-3xl font-bold text-blue-400 mb-2">87%</div>
+                        <div class="text-sm text-blue-100">Journey Completion</div>
+                    </div>
+                    <div class="metric-card rounded-xl p-6 text-center">
+                        <div class="text-3xl font-bold text-yellow-400 mb-2">23%</div>
+                        <div class="text-sm text-blue-100">Escalation Rate</div>
+                    </div>
+                </div>
+
+                <!-- Strategic Insight -->
+                <div class="bg-purple-500 bg-opacity-20 rounded-xl p-6 border border-purple-300 border-opacity-30">
+                    <h3 class="text-xl font-bold mb-3 text-purple-100">Strategic Insight</h3>
+                    <p class="text-purple-100">
+                        Sophie has evolved beyond proof-of-concept. The strategic question has shifted from "Can Sophie handle customers?" to "How do we make Sophie feel consistently reliable and human-trustworthy at scale?"
+                    </p>
+                </div>
             </div>
-            <div class="bg-white rounded-lg shadow p-6 text-center">
-                <div class="text-2xl font-bold text-red-600">55</div>
-                <div class="text-sm text-gray-500">Total Errors</div>
+        </section>
+
+        <!-- Performance Analysis -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <!-- Strengths -->
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h3 class="text-2xl font-bold mb-6 text-green-400">Core Strengths</h3>
+                
+                <div class="space-y-4">
+                    <div class="status-good rounded-lg p-4">
+                        <h4 class="font-bold mb-2">Operational Excellence</h4>
+                        <ul class="text-sm space-y-1 text-green-100">
+                            <li>• Date/time changes handled accurately</li>
+                            <li>• Cancellation & refund logic applied correctly</li>
+                            <li>• Inventory management without errors</li>
+                            <li>• ETA education reduces unnecessary upgrades</li>
+                        </ul>
+                    </div>
+
+                    <div class="status-good rounded-lg p-4">
+                        <h4 class="font-bold mb-2">Policy Adherence</h4>
+                        <ul class="text-sm space-y-1 text-green-100">
+                            <li>• Conservative, compliant behavior</li>
+                            <li>• Safety boundaries enforced consistently</li>
+                            <li>• Appropriate escalation when needed</li>
+                        </ul>
+                    </div>
+
+                    <div class="status-good rounded-lg p-4">
+                        <h4 class="font-bold mb-2">Customer Education</h4>
+                        <ul class="text-sm space-y-1 text-green-100">
+                            <li>• Clear timeline explanations</li>
+                            <li>• Structured option presentation</li>
+                            <li>• Anxiety reduction through clarity</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="bg-white rounded-lg shadow p-6 text-center">
-                <div class="text-2xl font-bold text-amber-600">1.57</div>
-                <div class="text-sm text-gray-500">Avg Errors/Agent</div>
-            </div>
-            <div class="bg-white rounded-lg shadow p-6 text-center">
-                <div class="text-2xl font-bold text-green-600">£540</div>
-                <div class="text-sm text-gray-500">Avg Cost/Agent</div>
+
+            <!-- Risk Areas -->
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h3 class="text-2xl font-bold mb-6 text-red-400">Risk Patterns</h3>
+                
+                <div class="space-y-4">
+                    <div class="status-risk rounded-lg p-4">
+                        <h4 class="font-bold mb-2">Critical: "Confirmed but Not Actioned"</h4>
+                        <p class="text-sm text-red-100 mb-2">System updates fail after Sophie confirms changes</p>
+                        <ul class="text-xs space-y-1 text-red-200">
+                            <li>• Breaks customer trust</li>
+                            <li>• Creates hidden admin rework</li>
+                            <li>• Raises dispute potential</li>
+                        </ul>
+                    </div>
+
+                    <div class="status-warning rounded-lg p-4">
+                        <h4 class="font-bold mb-2">Trust Erosion Moments</h4>
+                        <ul class="text-sm space-y-1 text-yellow-100">
+                            <li>• Awkward silences in conversations</li>
+                            <li>• Repetitive opening phrases</li>
+                            <li>• Generic responses to specific queries</li>
+                        </ul>
+                    </div>
+
+                    <div class="status-warning rounded-lg p-4">
+                        <h4 class="font-bold mb-2">Over-Escalation in Chat</h4>
+                        <ul class="text-sm space-y-1 text-yellow-100">
+                            <li>• Immediate transfers without probing</li>
+                            <li>• Inflates escalation metrics</li>
+                            <li>• Reduces automation ROI</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- High Priority Agents -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-red-500 pl-4">High Priority (3+ Errors)</h2>
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                <table class="min-w-full">
-                    <thead class="bg-red-50">
-                        <tr>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-red-900 uppercase">Agent</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-red-900 uppercase">Errors</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-red-900 uppercase">Cost Impact</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-red-900 uppercase">Primary Issues</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr>
-                            <td class="px-6 py-4 font-medium text-gray-900">Kamarl McDonald</td>
-                            <td class="px-6 py-4"><span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">4</span></td>
-                            <td class="px-6 py-4 font-semibold text-red-600">£2,665</td>
-                            <td class="px-6 py-4 text-sm text-gray-600">Inventory (2), Dismantling (1), Dates/Timeslots (1)</td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 font-medium text-gray-900">Kevin M</td>
-                            <td class="px-6 py-4"><span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">4</span></td>
-                            <td class="px-6 py-4 font-semibold text-red-600">£598</td>
-                            <td class="px-6 py-4 text-sm text-gray-600">Weights/Dimensions (3), Misselling (1)</td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 font-medium text-gray-900">Matthew Kershaw</td>
-                            <td class="px-6 py-4"><span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">3</span></td>
-                            <td class="px-6 py-4 font-semibold text-red-600">£690</td>
-                            <td class="px-6 py-4 text-sm text-gray-600">Weights/Dimensions (1), People Count (1), Access (1)</td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 font-medium text-gray-900">Brent C</td>
-                            <td class="px-6 py-4"><span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">3</span></td>
-                            <td class="px-6 py-4 font-semibold text-red-600">£695</td>
-                            <td class="px-6 py-4 text-sm text-gray-600">Dates/Timeslots (2), Dismantling (1)</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- Medium Priority Agents -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-amber-500 pl-4">Medium Priority (2 Errors)</h2>
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                <table class="min-w-full">
-                    <thead class="bg-amber-50">
-                        <tr>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-amber-900 uppercase">Agent</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-amber-900 uppercase">Errors</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-amber-900 uppercase">Cost Impact</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-amber-900 uppercase">Primary Issues</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr>
-                            <td class="px-6 py-4 font-medium text-gray-900">Mekaylin Davids</td>
-                            <td class="px-6 py-4"><span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-sm">2</span></td>
-                            <td class="px-6 py-4 font-semibold text-amber-600">£2,010</td>
-                            <td class="px-6 py-4 text-sm text-gray-600">Wheelbase/Weight (1), Dates/Timeslots (1)</td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 font-medium text-gray-900">Lee Topley</td>
-                            <td class="px-6 py-4"><span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-sm">2</span></td>
-                            <td class="px-6 py-4 font-semibold text-amber-600">£1,532</td>
-                            <td class="px-6 py-4 text-sm text-gray-600">Not Sales (1), Misselling (1)</td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 font-medium text-gray-900">Luxshan DP</td>
-                            <td class="px-6 py-4"><span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-sm">2</span></td>
-                            <td class="px-6 py-4 font-semibold text-amber-600">£825</td>
-                            <td class="px-6 py-4 text-sm text-gray-600">Can't be Winched (2)</td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 font-medium text-gray-900">HNodunyelwa</td>
-                            <td class="px-6 py-4"><span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-sm">2</span></td>
-                            <td class="px-6 py-4 font-semibold text-amber-600">£710</td>
-                            <td class="px-6 py-4 text-sm text-gray-600">Storage Location (1), Dates/Timeslots (1)</td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 font-medium text-gray-900">Mo Y</td>
-                            <td class="px-6 py-4"><span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-sm">2</span></td>
-                            <td class="px-6 py-4 font-semibold text-amber-600">£707</td>
-                            <td class="px-6 py-4 text-sm text-gray-600">Weights/Dimensions (1), Access (1)</td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 font-medium text-gray-900">Curtis M</td>
-                            <td class="px-6 py-4"><span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-sm">2</span></td>
-                            <td class="px-6 py-4 font-semibold text-amber-600">£1,190</td>
-                            <td class="px-6 py-4 text-sm text-gray-600">Prohibited Item (1), Access (1)</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- Single Error Agents -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-green-500 pl-4">Standard Priority (1 Error)</h2>
-            <div class="bg-white rounded-xl shadow-lg p-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <div class="font-medium text-gray-900">Chad P</div>
-                        <div class="text-sm text-gray-600">Kerb Weight - £471</div>
+        <!-- Voice vs Chat Quality Split -->
+        <section class="mb-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h3 class="text-2xl font-bold mb-6">Channel Performance Comparison</h3>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Voice Performance -->
+                    <div class="bg-blue-500 bg-opacity-10 rounded-xl p-6 border border-blue-300 border-opacity-30">
+                        <h4 class="text-xl font-bold mb-4 text-blue-300">Voice Channel</h4>
+                        
+                        <div class="grid grid-cols-1 gap-4 mb-4">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-green-400">92%</div>
+                                <div class="text-xs text-blue-200">Success Rate</div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <div class="bg-green-500 bg-opacity-20 rounded p-3">
+                                <h5 class="font-semibold text-green-300 text-sm mb-1">Strengths</h5>
+                                <ul class="text-xs text-green-200 space-y-1">
+                                    <li>• Natural conversation flow</li>
+                                    <li>• Better context retention</li>
+                                    <li>• Effective de-escalation</li>
+                                </ul>
+                            </div>
+                            <div class="bg-yellow-500 bg-opacity-20 rounded p-3">
+                                <h5 class="font-semibold text-yellow-300 text-sm mb-1">Areas for Improvement</h5>
+                                <ul class="text-xs text-yellow-200 space-y-1">
+                                    <li>• Occasional awkward silences</li>
+                                    <li>• Confirmation-to-action gaps</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <div class="font-medium text-gray-900">Habeeb Kamoju</div>
-                        <div class="text-sm text-gray-600">Pricing/Winching - £242</div>
+                    
+                    <!-- Chat Performance -->
+                    <div class="bg-purple-500 bg-opacity-10 rounded-xl p-6 border border-purple-300 border-opacity-30">
+                        <h4 class="text-xl font-bold mb-4 text-purple-300">Chat Channel</h4>
+                        
+                        <div class="grid grid-cols-1 gap-4 mb-4">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-yellow-400">78%</div>
+                                <div class="text-xs text-purple-200">Success Rate</div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <div class="bg-green-500 bg-opacity-20 rounded p-3">
+                                <h5 class="font-semibold text-green-300 text-sm mb-1">Strengths</h5>
+                                <ul class="text-xs text-green-200 space-y-1">
+                                    <li>• Quick response times</li>
+                                    <li>• Accurate policy application</li>
+                                    <li>• Clear structured responses</li>
+                                </ul>
+                            </div>
+                            <div class="bg-red-500 bg-opacity-20 rounded p-3">
+                                <h5 class="font-semibold text-red-300 text-sm mb-1">Critical Issues</h5>
+                                <ul class="text-xs text-red-200 space-y-1">
+                                    <li>• Over-escalation (35% vs 18% voice)</li>
+                                    <li>• Premature transfers</li>
+                                    <li>• Generic responses</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <div class="font-medium text-gray-900">Polly R</div>
-                        <div class="text-sm text-gray-600">Weights/Dimensions - £149</div>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <div class="font-medium text-gray-900">T Hass</div>
-                        <div class="text-sm text-gray-600">Operational Status - £130</div>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <div class="font-medium text-gray-900">NafisM</div>
-                        <div class="text-sm text-gray-600">Floors/Dates - £420</div>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <div class="font-medium text-gray-900">Dave D</div>
-                        <div class="text-sm text-gray-600">Wheelbase/Weight - £586</div>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <div class="font-medium text-gray-900">Tashlyn Hass</div>
-                        <div class="text-sm text-gray-600">Multi-Stop - £156</div>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <div class="font-medium text-gray-900">Mo Y</div>
-                        <div class="text-sm text-gray-600">Weights/Access - £707</div>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <div class="font-medium text-gray-900">Gabriella Khawula</div>
-                        <div class="text-sm text-gray-600">Dates/Timeslots - £66</div>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <div class="font-medium text-gray-900">Levi Sables</div>
-                        <div class="text-sm text-gray-600">Dates/Timeslots - £1327</div>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <div class="font-medium text-gray-900">Custis M</div>
-                        <div class="text-sm text-gray-600">Dates/Timeslots - £275</div>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <div class="font-medium text-gray-900">THass</div>
-                        <div class="text-sm text-gray-600">Dismantling - £211</div>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <div class="font-medium text-gray-900">Shane Cassim</div>
-                        <div class="text-sm text-gray-600">Misselling - £1023</div>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <div class="font-medium text-gray-900">Daniel M</div>
-                        <div class="text-sm text-gray-600">Weights/Dimensions - £480</div>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <div class="font-medium text-gray-900">Mekaylin Davids</div>
-                        <div class="text-sm text-gray-600">Wheelbase/Dates - £1696</div>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <div class="font-medium text-gray-900">Jacques DuPlessis</div>
-                        <div class="text-sm text-gray-600">Dismantling - £403</div>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <div class="font-medium text-gray-900">Sandra S</div>
-                        <div class="text-sm text-gray-600">Misselling - £618</div>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <div class="font-medium text-gray-900">Michae Loubscher</div>
-                        <div class="text-sm text-gray-600">Weights/Dimensions - £209</div>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <div class="font-medium text-gray-900">Connor N</div>
-                        <div class="text-sm text-gray-600">Misselling - £620</div>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <div class="font-medium text-gray-900">MIsaacs</div>
-                        <div class="text-sm text-gray-600">Dates/Timeslots - £549</div>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <div class="font-medium text-gray-900">Richard Swanepoel</div>
-                        <div class="text-sm text-gray-600">Can't be Winched - £132</div>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <div class="font-medium text-gray-900">MShai</div>
-                        <div class="text-sm text-gray-600">Weights/Dimensions - £109</div>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <div class="font-medium text-gray-900">Curtis M</div>
-                        <div class="text-sm text-gray-600">Prohibited Item - £601</div>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <div class="font-medium text-gray-900">Shaun K</div>
-                        <div class="text-sm text-gray-600">Misselling - £223</div>
-                    </div>
+                </div>
+                
+                <div class="mt-6 bg-gray-500 bg-opacity-20 rounded-xl p-4 border border-gray-300 border-opacity-30">
+                    <h5 class="font-semibold text-gray-300 mb-2">Key Insight</h5>
+                    <p class="text-sm text-gray-200">
+                        Voice channel significantly outperforms chat in completion rates. Chat requires immediate attention to reduce over-escalation and improve probing before transfer.
+                    </p>
                 </div>
             </div>
         </section>
 
         <!-- Action Plan -->
-        <section class="bg-indigo-50 rounded-xl p-8">
-            <h2 class="text-2xl font-bold text-indigo-900 mb-4">Recommended Training Approach</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-lg">
-                    <h3 class="font-bold text-red-900 mb-2">🚨 Immediate (High Priority)</h3>
-                    <p class="text-sm text-gray-600 mb-2">4 agents with 3+ errors each</p>
-                    <p class="text-sm text-gray-700">Intensive 1-on-1 coaching sessions focusing on their specific error patterns. Weekly progress reviews.</p>
+        <section class="mb-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h3 class="text-2xl font-bold mb-6">Recommended Actions</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-blue-500 bg-opacity-20 rounded-xl p-6 border border-blue-300 border-opacity-30">
+                        <h4 class="text-xl font-bold mb-4 text-blue-300">If Addressed</h4>
+                        <ul class="space-y-2 text-blue-100">
+                            <li>• Higher end-to-end AI resolution</li>
+                            <li>• Reduced escalation to human teams</li>
+                            <li>• Lower admin rework burden</li>
+                            <li>• Stronger customer confidence</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-red-500 bg-opacity-20 rounded-xl p-6 border border-red-300 border-opacity-30">
+                        <h4 class="text-xl font-bold mb-4 text-red-300">If Unaddressed</h4>
+                        <ul class="space-y-2 text-red-100">
+                            <li>• AI adoption plateaus</li>
+                            <li>• Preventable human workload</li>
+                            <li>• Trust lags behind capability</li>
+                            <li>• Missed automation ROI</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg">
-                    <h3 class="font-bold text-amber-900 mb-2">⚠️ Priority (Medium Priority)</h3>
-                    <p class="text-sm text-gray-600 mb-2">6 agents with 2 errors each</p>
-                    <p class="text-sm text-gray-700">Targeted micro-learning modules plus peer mentoring. Bi-weekly check-ins.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg">
-                    <h3 class="font-bold text-green-900 mb-2">📚 Standard (Single Errors)</h3>
-                    <p class="text-sm text-gray-600 mb-2">25 agents with 1 error each</p>
-                    <p class="text-sm text-gray-700">Group training sessions on common error types. Monthly monitoring.</p>
+
+                <div class="mt-8 bg-green-500 bg-opacity-20 rounded-xl p-6 border border-green-300 border-opacity-30">
+                    <h4 class="text-xl font-bold mb-4 text-green-300">Priority Actions</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h5 class="font-semibold mb-2 text-green-200">Immediate (Week 1-2)</h5>
+                            <ul class="text-sm space-y-1 text-green-100">
+                                <li>• Fix confirmation-to-execution gap</li>
+                                <li>• Reduce chat over-escalation</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-semibold mb-2 text-blue-200">Medium-term (Month 1-2)</h5>
+                            <ul class="text-sm space-y-1 text-blue-100">
+                                <li>• Improve conversational flow</li>
+                                <li>• Enhance trust-building behaviors</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- Footer -->
+        <footer class="text-center text-blue-200 text-sm">
+            <p>Prepared for Executive Review • Sophie AI Agent Analysis • Period: January 5-19, 2026</p>
+            <p class="mt-2">Confidential - Internal Use Only</p>
+        </footer>
     </main>
 
+    <script>
+        // Performance Chart
+        const ctx = document.getElementById('performanceChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Current'],
+                datasets: [{
+                    label: 'Journey Completion %',
+                    data: [82, 85, 86, 87],
+                    borderColor: '#60a5fa',
+                    backgroundColor: 'rgba(96, 165, 250, 0.1)',
+                    tension: 0.4
+                }, {
+                    label: 'Trust Score',
+                    data: [3.8, 4.0, 4.1, 4.2],
+                    borderColor: '#a78bfa',
+                    backgroundColor: 'rgba(167, 139, 250, 0.1)',
+                    tension: 0.4
+                }, {
+                    label: 'Escalation Rate %',
+                    data: [28, 26, 24, 23],
+                    borderColor: '#fbbf24',
+                    backgroundColor: 'rgba(251, 191, 36, 0.1)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: { color: '#e0e7ff' }
+                    }
+                },
+                scales: {
+                    x: { 
+                        ticks: { color: '#e0e7ff' },
+                        grid: { color: 'rgba(224, 231, 255, 0.1)' }
+                    },
+                    y: { 
+                        ticks: { color: '#e0e7ff' },
+                        grid: { color: 'rgba(224, 231, 255, 0.1)' }
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
