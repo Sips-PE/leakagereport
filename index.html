@@ -64,16 +64,16 @@
                 <!-- Key Metrics -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                     <div class="metric-card rounded-xl p-6 text-center">
-                        <div class="text-3xl font-bold text-green-400 mb-2">95%</div>
-                        <div class="text-sm text-blue-100">Policy Compliance</div>
+                        <div class="text-3xl font-bold text-blue-400 mb-2">555</div>
+                        <div class="text-sm text-blue-100">Evaluated Chats (Latest Week)</div>
                     </div>
                     <div class="metric-card rounded-xl p-6 text-center">
-                        <div class="text-3xl font-bold text-blue-400 mb-2">87%</div>
-                        <div class="text-sm text-blue-100">Journey Completion</div>
+                        <div class="text-3xl font-bold text-yellow-400 mb-2">28.3%</div>
+                        <div class="text-sm text-blue-100">Could Handle</div>
                     </div>
                     <div class="metric-card rounded-xl p-6 text-center">
-                        <div class="text-3xl font-bold text-yellow-400 mb-2">23%</div>
-                        <div class="text-sm text-blue-100">Escalation Rate</div>
+                        <div class="text-3xl font-bold text-green-400 mb-2">66.1%</div>
+                        <div class="text-sm text-blue-100">Handled Correctly</div>
                     </div>
                 </div>
 
@@ -159,6 +159,84 @@
                 </div>
             </div>
         </div>
+
+        <!-- Week-on-Week Performance -->
+        <section class="mb-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h3 class="text-2xl font-bold mb-4">Week-on-Week Evaluation</h3>
+                <p class="text-sm text-blue-200 mb-6">All figures based solely on evaluated interactions. Unevaluated chats are excluded. Current week remains directionally indicative as QA coverage is in progress.</p>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead class="bg-white bg-opacity-10">
+                            <tr>
+                                <th class="px-4 py-3 text-left text-blue-200">Week</th>
+                                <th class="px-4 py-3 text-right text-blue-200">Evaluated Chats</th>
+                                <th class="px-4 py-3 text-right text-blue-200">% Could Handle</th>
+                                <th class="px-4 py-3 text-right text-blue-200">% Handled Correctly</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white divide-opacity-10">
+                            <tr>
+                                <td class="px-4 py-3 text-blue-100">29 Dec–04 Jan</td>
+                                <td class="px-4 py-3 text-right text-white">169</td>
+                                <td class="px-4 py-3 text-right text-yellow-400">39.6%</td>
+                                <td class="px-4 py-3 text-right text-green-400">59.8%</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 text-blue-100">05–11 Jan</td>
+                                <td class="px-4 py-3 text-right text-white">212</td>
+                                <td class="px-4 py-3 text-right text-red-400">17.9%</td>
+                                <td class="px-4 py-3 text-right text-green-400">56.1%</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 text-blue-100">12–18 Jan</td>
+                                <td class="px-4 py-3 text-right text-white">198</td>
+                                <td class="px-4 py-3 text-right text-red-400">16.2%</td>
+                                <td class="px-4 py-3 text-right text-yellow-400">44.9%</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 text-blue-100">19–25 Jan</td>
+                                <td class="px-4 py-3 text-right text-white">185</td>
+                                <td class="px-4 py-3 text-right text-green-400">46.5%</td>
+                                <td class="px-4 py-3 text-right text-green-400">55.7%</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 text-blue-100">26 Jan–01 Feb</td>
+                                <td class="px-4 py-3 text-right text-white">365</td>
+                                <td class="px-4 py-3 text-right text-green-400">47.1%</td>
+                                <td class="px-4 py-3 text-right text-yellow-400">50.4%</td>
+                            </tr>
+                            <tr class="bg-blue-500 bg-opacity-20">
+                                <td class="px-4 py-3 text-blue-100 font-semibold">02–08 Feb (Latest)</td>
+                                <td class="px-4 py-3 text-right text-white font-bold">555</td>
+                                <td class="px-4 py-3 text-right text-yellow-400 font-bold">28.3%</td>
+                                <td class="px-4 py-3 text-right text-green-400 font-bold">66.1%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-blue-500 bg-opacity-20 rounded-lg p-4 border border-blue-300 border-opacity-30">
+                        <h5 class="font-semibold text-blue-300 mb-2 text-sm">Metric Definitions</h5>
+                        <ul class="text-xs text-blue-200 space-y-1">
+                            <li><strong>Evaluated Chats:</strong> Interactions with completed QA evaluation</li>
+                            <li><strong>% Could Handle:</strong> Capability coverage (within Sophie's scope)</li>
+                            <li><strong>% Handled Correctly:</strong> Execution quality (goal achieved)</li>
+                        </ul>
+                    </div>
+                    <div class="bg-yellow-500 bg-opacity-20 rounded-lg p-4 border border-yellow-300 border-opacity-30">
+                        <h5 class="font-semibold text-yellow-300 mb-2 text-sm">Key Observations</h5>
+                        <ul class="text-xs text-yellow-200 space-y-1">
+                            <li>• Latest week shows highest evaluation volume (555 chats)</li>
+                            <li>• Execution quality improved to 66.1% (highest recorded)</li>
+                            <li>• Capability coverage dropped to 28.3% (requires investigation)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Voice vs Chat Quality Split -->
         <section class="mb-8">
